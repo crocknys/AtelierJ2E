@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <form action="/email" method="post">
+    <form action="/login" method="post">
 
         Want to win 1 000 000 000 $ ? Juste give your email bellow !!!<br>
         <input type="text" name="eMail">

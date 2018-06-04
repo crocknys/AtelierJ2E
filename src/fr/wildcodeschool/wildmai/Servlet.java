@@ -13,19 +13,6 @@ public class Servlet extends HttpServlet {
 
         String mailrequested = request.getParameter("eMail");
 
-        MailBean email = new MailBean();
-        email.setContent("none");
-        email.setFrom("moi");
-        email.setTo(mailrequested);
-        request.setAttribute("email", email);
-
-        if ( mailrequested != null && !mailrequested.isEmpty()) {
-            request.getSession().setAttribute("mail",mailrequested);
-            this.getServletContext().getRequestDispatcher("/maillist.jsp").forward(request,response);
-        } else {
-            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
-        }
-
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

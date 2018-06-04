@@ -11,13 +11,10 @@
     <title>Adresses Email</title>
 </head>
 <body>
-<table border="2" cellpadding="5">
-    <tr>
-        <th>${email.from}</th>
-        <th>${email.to}</th>
-        <th>${email.content}</th>
-    </tr>
-</table>
+
+test ?
+
+
 
 </body>
 </html>

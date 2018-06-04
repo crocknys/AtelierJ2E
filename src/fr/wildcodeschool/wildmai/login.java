@@ -7,15 +7,41 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "login")
+@WebServlet(name = "login", urlPatterns = "/login")
 public class login extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String mail = request.getParameter("eMail");
 
-        this.getServletContext().getRequestDispatcher("/login.jsp").forward(request,response);
+        request.getSession().setAttribute("email", mail);
+
+        if (mail != null && !mail.isEmpty()) {
+            this.getServletContext().getRequestDispatcher("/maillist.jsp").forward(request, response);
+        } else {
+            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+        }
+
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        String mail = (String) request.getSession().getAttribute("email");
+
+        if (mail != null && !mail.isEmpty()) {
+
+            this.getServletContext().getRequestDispatcher("/maillist.jsp").forward(request, response);
+
+        } else {
+
+            this.getServletContext().getRequestDispatcher("/login.jsp").forward(request, response);
+        }
     }
 }
+
+/**
+ * MailBean email = new MailBean();
+ * email.setContent("none");
+ * email.setFrom("moi");
+ * email.setTo("content");
+ * request.setAttribute("email", email);
+ */
