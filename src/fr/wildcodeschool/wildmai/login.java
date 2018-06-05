@@ -15,6 +15,12 @@ public class login extends HttpServlet {
 
         request.getSession().setAttribute("email", mail);
 
+        MailBean email = new MailBean();
+        email.setContent("none");
+        email.setFrom("moi");
+        email.setTo(mail);
+        request.setAttribute("mailist", email);
+
         if (mail != null && !mail.isEmpty()) {
             this.getServletContext().getRequestDispatcher("/maillist.jsp").forward(request, response);
         } else {
@@ -29,6 +35,12 @@ public class login extends HttpServlet {
 
         if (mail != null && !mail.isEmpty()) {
 
+            MailBean email = new MailBean();
+            email.setContent("none");
+            email.setFrom("moi");
+            email.setTo(mail);
+            request.setAttribute("mailist", email);
+
             this.getServletContext().getRequestDispatcher("/maillist.jsp").forward(request, response);
 
         } else {
@@ -38,10 +50,3 @@ public class login extends HttpServlet {
     }
 }
 
-/**
- * MailBean email = new MailBean();
- * email.setContent("none");
- * email.setFrom("moi");
- * email.setTo("content");
- * request.setAttribute("email", email);
- */

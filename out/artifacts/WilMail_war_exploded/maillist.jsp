@@ -12,7 +12,23 @@
 </head>
 <body>
 
-test ?
+<table border="2" cellpadding="3">
+    <tr>
+        <th>${mailist.content}</th>
+        <th>Lastname</th>
+        <th>Age</th>
+    </tr>
+    <tr>
+        <td>${mailist.from}</td>
+        <td>Smith</td>
+        <td>50</td>
+    </tr>
+    <tr>
+        <td>${mailist.to}</td>
+        <td>Jackson</td>
+        <td>94</td>
+    </tr>
+</table>
 
 
 
